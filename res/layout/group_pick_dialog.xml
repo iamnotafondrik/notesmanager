@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/group_regular_card"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="1dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_group_regular"
+                android:id="@+id/group_regular_icon"
+                tools:ignore="ContentDescription,VectorDrawableCompat"
+                android:layout_gravity="center_vertical"
+                android:contentDescription=""
+                android:layout_marginStart="@dimen/dimen4dp"
+                android:layout_marginBottom="@dimen/dimen4dp"
+                android:layout_marginTop="@dimen/dimen4dp" />
+
+            <TextView
+                android:text="@string/regular_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/group_regular_text"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/group_regular_icon"
+                android:textSize="16sp"
+                android:layout_marginStart="@dimen/dimen10dp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/group_home_card"
+        android:layout_below="@+id/group_regular_card"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="1dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_group_home"
+                android:id="@+id/group_home_icon"
+                tools:ignore="ContentDescription,VectorDrawableCompat"
+                android:layout_gravity="center_vertical"
+                android:contentDescription=""
+                android:layout_marginStart="@dimen/dimen4dp"
+                android:layout_marginBottom="@dimen/dimen4dp"
+                android:layout_marginTop="@dimen/dimen4dp" />
+
+            <TextView
+                android:text="@string/home_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/group_home_text"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/group_home_icon"
+                android:textSize="16sp"
+                android:layout_marginStart="@dimen/dimen10dp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/group_work_card"
+        android:layout_below="@+id/group_home_card"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="1dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_group_work"
+                android:id="@+id/group_work_icon"
+                tools:ignore="ContentDescription,VectorDrawableCompat"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dimen4dp"
+                android:layout_marginBottom="@dimen/dimen4dp"
+                android:layout_marginTop="@dimen/dimen4dp" />
+
+            <TextView
+                android:text="@string/work_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/group_work_text"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/group_work_icon"
+                android:textSize="16sp"
+                android:layout_marginStart="@dimen/dimen10dp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/group_important_card"
+        android:layout_below="@+id/group_work_card"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="1dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_group_important"
+                android:id="@+id/group_important_icon"
+                tools:ignore="ContentDescription,VectorDrawableCompat"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dimen4dp"
+                android:layout_marginBottom="@dimen/dimen4dp"
+                android:layout_marginTop="@dimen/dimen4dp" />
+
+            <TextView
+                android:text="@string/important_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/group_inportant_text"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/group_important_icon"
+                android:layout_marginStart="@dimen/dimen10dp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

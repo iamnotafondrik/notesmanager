@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Заметки</string>
+    <string name="description">Введите текст…</string>
+    <string name="action_settings">Настройки</string>
+    <string name="auth_failed">Ошибка аутентификации</string>
+    <string name="backup_download_failed">Загрузка резервной копии не удалась</string>
+    <string name="by_date">По дате изменения</string>
+    <string name="by_groups">По группам</string>
+    <string name="by_order">По порядку</string>
+    <string name="delete">Удалить</string>
+    <string name="delete_note_message">Вы уверены?</string>
+    <string name="gps_error">Ошибка Google сервисов</string>
+    <string name="important_note">Важная</string>
+    <string name="label_note_list">Ваши заметки</string>
+    <string name="no_one_note">У Вас нет ни одной заметки.</string>
+    <string name="regular_note">Обычная</string>
+    <string name="share">Поделиться</string>
+    <string name="sorting">Сортировка</string>
+    <string name="wait">Подождите</string>
+    <string name="wait_message">Пожалуйста подождите несколько секунд. Мы загружаем последний бэкап…</string>
+    <string name="backup_download_succsses">Загрузка резервной копии завершена</string>
+    <string name="label_full_note">Новая заметка</string>
+    <string name="cant_share_empty_note">Вы не можете поделиться пустой заметкой</string>
+    <string name="remind_dont">Не напоминать о заметке</string>
+    <string name="remind_eight">Напомнить через 8 часов</string>
+    <string name="remind_five">Напомнить через 5 часов</string>
+    <string name="remind_half">Напомнить через 30 минут</string>
+    <string name="remind_one">Напомнить через 1 час</string>
+    <string name="remind_three">Напомнить через 3 часа</string>
+    <string name="remind_twelve">Напомнить через 12 часов</string>
+    <string name="remind_two">Напомнить через 2 часа</string>
+    <string name="reminder">Напоминание</string>
+    <string name="home_note">Дом</string>
+    <string name="work_note">Работа</string>
+    <string name="pin_in_widget">Закрепить в виджете</string>
+    <string name="widget_title">Заметки</string>
+    <string name="widget_no_one_note">У Вас нет ни одной заметки.\nНажми что-бы открыть приложение.</string>
+    <string name="log_out">Выйти</string>
+    <string name="log_in">Войти через аккаунт Google</string>
+    <string name="n_name">Вы не авторизованы</string>
+    <string name="title_activity_settings">Настройки</string>
+    <string name="settings_account_title">Аккаунт</string>
+    <string name="about_notes">О Приложении</string>
+</resources>

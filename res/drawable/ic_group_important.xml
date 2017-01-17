@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:viewportWidth="500"
+    android:viewportHeight="500"
+    android:width="56dp"
+    android:height="56dp">
+    <path
+        android:pathData="M500 250A250 250 0 0 1 250 500 250 250 0 0 1 0 250 250 250 0 0 1 250 0 250 250 0 0 1 500 250Z"
+        android:fillColor="#b5c9d3" />
+    <path
+        android:pathData="M450 250A200 200 0 0 1 250 450 200 200 0 0 1 50 250 200 200 0 0 1 250 50 200 200 0 0 1 450 250Z"
+        android:fillColor="#ffffff" />
+    <path
+        android:pathData="M410 250A160 160 0 0 1 250 410 160 160 0 0 1 90 250 160 160 0 0 1 250 90 160 160 0 0 1 410 250Z"
+        android:fillColor="#b5c9d3" />
+    <path
+        android:pathData="M279.99998 356.19049a30 30 0 0 1 -30 30 30 30 0 0 1 -30 -30 30 30 0 0 1 30 -30 30 30 0 0 1 30 30z"
+        android:fillColor="#ffffff" />
+    <path
+        android:pathData="M250 119.54762c16.62 0 30 13.38 30 30l0 120.90476c0 16.62 -13.38 30 -30 30 -16.62 0 -30 -13.38 -30 -30l0 -120.90476c0 -16.62 13.38 -30 30 -30z"
+        android:fillColor="#ffffff" />
+</vector>

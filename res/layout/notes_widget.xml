@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/widget_header"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:layout_height="48dp">
+
+        <TextView
+            android:id="@+id/widget_edit"
+            android:text="@string/widget_title"
+            android:lines="1"
+            android:maxLines="1"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentStart="true"
+            android:layout_width="wrap_content"
+            android:paddingStart="@dimen/dimen16dp"
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+            tools:ignore="RelativeOverlap,RtlSymmetry"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:textAlignment="textStart"
+            android:gravity="center_vertical"
+            android:layout_height="48dp"
+            android:textSize="20sp">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/widget_add"
+            android:src="@drawable/ic_create_widget"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:scaleType="center"
+            android:contentDescription="@string/widget_add"
+            android:layout_height="48dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="56dp">
+
+        </ImageView>
+
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/widget_list_view"
+        android:divider="@color/cardview_shadow_start_color"
+        android:dividerHeight="@dimen/cardview_compat_inset_shadow"
+        android:scrollbarThumbVertical="@drawable/widget_scrollbar"
+        android:scrollbarSize="@dimen/dimen4dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/widget_header"
+        android:background="@color/white"/>
+
+</RelativeLayout>

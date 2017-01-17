@@ -1,0 +1,10 @@
+<vector android:height="56dp" android:viewportHeight="1000"
+    android:viewportWidth="1000" android:width="56dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#b5c9d3" android:name="Эллипс 3 копия 3" android:pathData="m500 0c276.1 0 500 223.9 500 500c0 276.1 -223.9 500 -500 500c-276.1 0 -500 -223.9 -500 -500c0 -276.1 223.9 -500 500 -500z"/>
+    <path android:fillColor="#fff" android:name="Эллипс 4" android:pathData="m492 236c32 0 59 26.7 59 61c0 34.3 -27 61 -59 61c-32 0 -59 -26.7 -59 -61c0 -34.3 27 -61 59 -61zm0 -30c-49.2 0 -89 40.7 -89 91c0 50.3 39.8 91 89 91c49.2 0 89 -40.7 89 -91c0 -50.3 -39.8 -91 -89 -91z"/>
+    <path android:fillColor="#fff"
+        android:name="Прямоугольник, скругл. углы 3" android:pathData="m223 294h550c22.1 0 40 17.9 40 40v346c0 22.1 -17.9 40 -40 40h-550c-22.1 0 -40 -17.9 -40 -40v-346c0 -22.1 17.9 -40 40 -40z"/>
+    <path android:fillColor="#b5c9d3"
+        android:name="Прямоугольник, скругл. углы 4" android:pathData="m137 533h710c5.5 0 10 4.5 10 10v13c0 5.5 -4.5 10 -10 10h-710c-5.5 0 -10 -4.5 -10 -10v-13c0 -5.5 4.5 -10 10 -10z"/>
+    <path android:fillColor="#b5c9d3" android:name="Эллипс 1" android:pathData="m497 404c27.6 0 50 22.4 50 50c0 27.6 -22.4 50 -50 50c-27.6 0 -50 -22.4 -50 -50c0 -27.6 22.4 -50 50 -50z"/>
+</vector>

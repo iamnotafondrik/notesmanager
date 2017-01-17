@@ -1,0 +1,2 @@
+<WakefulIntentService
+    listener="com.iamnotafondrik.notesmanager.NotificationListener" />

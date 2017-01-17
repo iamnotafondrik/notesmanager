@@ -1,0 +1,12 @@
+<vector android:height="56dp" android:viewportHeight="1000"
+    android:viewportWidth="1000" android:width="56dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#b5c9d3" android:name="Эллипс 3" android:pathData="m500 0c276.1 0 500 223.9 500 500c0 276.1 -223.9 500 -500 500c-276.1 0 -500 -223.9 -500 -500c0 -276.1 223.9 -500 500 -500z"/>
+    <path android:fillColor="#fff"
+        android:name="Прямоугольник, скругл. углы 2" android:pathData="m282 168h432c22.1 0 40 17.9 40 40v590c0 22.1 -17.9 40 -40 40h-432c-22.1 0 -40 -17.9 -40 -40v-590c0 -22.1 17.9 -40 40 -40z"/>
+    <path android:fillColor="#b5c9d3" android:name="Фигура 1 копия 3" android:pathData="m325 388v-76h346v76h-346"/>
+    <path android:fillColor="#b5c9d3" android:name="Фигура 1 копия 3" android:pathData="m641 342v16h-286v-16zm-316 -30v76h346v-76z"/>
+    <path android:fillColor="#b5c9d3" android:name="Фигура 1 копия 4" android:pathData="m325 541v-76h346v76h-346"/>
+    <path android:fillColor="#b5c9d3" android:name="Фигура 1 копия 4" android:pathData="m641 495v16h-286v-16zm-316 -30v76h346v-76z"/>
+    <path android:fillColor="#b5c9d3" android:name="Фигура 1 копия 5" android:pathData="m325 693v-76h346v76h-346"/>
+    <path android:fillColor="#b5c9d3" android:name="Фигура 1 копия 5" android:pathData="m641 647v16h-286v-16zm-316 -30v76h346v-76z"/>
+</vector>
