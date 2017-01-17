@@ -25,16 +25,16 @@ public class SPHelper {
     private static SharedPreferences.Editor editor = null;
     private static Context context = null;
 
-    public static void sharedPreferenceInit () {
+    public static void sharedPreferenceInit() {
         sharedPreferences = context.getSharedPreferences(PREFS_NOTE_MANAGER, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
 
-    public static void sharedPreferenceInit (Context cont) {
+    public static void sharedPreferenceInit(Context cont) {
         context = cont;
     }
 
-    public static void setStringPreference (String key, String value) {
+    public static void setStringPreference(String key, String value) {
         if (sharedPreferences == null) {
             sharedPreferenceInit();
         }
@@ -42,7 +42,7 @@ public class SPHelper {
         editor.apply();
     }
 
-    public static String getStringPreference (String key) {
+    public static String getStringPreference(String key) {
         if (sharedPreferences == null) {
             sharedPreferenceInit();
         }
@@ -53,15 +53,15 @@ public class SPHelper {
         }
     }
 
-    public void setIntPreference (int i) {
+    public void setIntPreference(int i) {
 
     }
 
-    public int getIntPreference () {
+    public int getIntPreference() {
         return 0;
     }
 
-    public static void setBoolPreference (String key, Boolean value) {
+    public static void setBoolPreference(String key, Boolean value) {
         if (sharedPreferences == null) {
             sharedPreferenceInit();
         }
@@ -69,7 +69,7 @@ public class SPHelper {
         editor.apply();
     }
 
-    public static boolean getBoolPreference (String key) {
+    public static boolean getBoolPreference(String key) {
         if (sharedPreferences == null) {
             sharedPreferenceInit();
         }

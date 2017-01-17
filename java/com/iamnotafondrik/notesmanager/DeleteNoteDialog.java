@@ -21,7 +21,7 @@ public class DeleteNoteDialog {
         builder = new AlertDialog.Builder(activity);
     }
 
-    public void createDeleteDialog () {
+    public void createDeleteDialog() {
         builder.setTitle(R.string.delete);
         builder.setMessage(R.string.delete_note_message);
         builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -40,6 +40,6 @@ public class DeleteNoteDialog {
     }
 
     interface DeleteDialogListener {
-        public void deleteNote ();
+        public void deleteNote();
     }
 }

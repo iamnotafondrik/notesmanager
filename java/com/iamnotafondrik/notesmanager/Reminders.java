@@ -29,13 +29,13 @@ public class Reminders {
 
     long remindTime;
 
-    public Reminders (Spinner spinner, Activity activity) {
+    public Reminders(Spinner spinner, Activity activity) {
         this.spinner = spinner;
-        this.context = activity.getApplicationContext();
+        this.context = activity;
         reminderListener = (ReminderListener) activity;
     }
 
-    public void configSpinner () {
+    public void configSpinner() {
         String[] items = {context.getString(R.string.remind_dont), context.getString(R.string.remind_half),
                 context.getString(R.string.remind_one), context.getString(R.string.remind_two),
                 context.getString(R.string.remind_three), context.getString(R.string.remind_eight)};
@@ -71,7 +71,7 @@ public class Reminders {
                 }*/
                 String noteId = reminderListener.getNoteId();
                 String message = reminderListener.getDescription().getText().toString();
-                createRemind (noteId, context.getString(R.string.reminder), message, remindTime);
+                createRemind(noteId, context.getString(R.string.reminder), message, remindTime);
             }
 
             @Override
@@ -81,9 +81,9 @@ public class Reminders {
         });
     }
 
-    private void createRemind (String id, String title, String message, long delay) {
+    private void createRemind(String id, String title, String message, long delay) {
         if (remindTime > 0) {
-            Intent alarmIntent =  new Intent(context, NotificationReceiver.class);
+            Intent alarmIntent = new Intent(context, NotificationReceiver.class);
             alarmIntent.putExtra("noteId", id);
             alarmIntent.putExtra("title", title);
             alarmIntent.putExtra("message", message);
@@ -92,18 +92,17 @@ public class Reminders {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + delay, pendingIntent);
-            }
-            else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + delay, pendingIntent);
-            }
-            else {
+            } else {
                 alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + delay, pendingIntent);
             }
         }
     }
 
     interface ReminderListener {
-        public EditText getDescription ();
-        public String getNoteId ();
+        public EditText getDescription();
+
+        public String getNoteId();
     }
 }

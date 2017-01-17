@@ -38,21 +38,21 @@ public class FirebaseStorageHelper {
         storage = FirebaseStorage.getInstance();
         storage.setMaxDownloadRetryTimeMillis(10000);
         storage.setMaxUploadRetryTimeMillis(10000);
-        String filePath = String.format("%s", context.getDatabasePath (DBHelper.DATABASE_NAME).getAbsolutePath());
+        String filePath = String.format("%s", context.getDatabasePath(DBHelper.DATABASE_NAME).getAbsolutePath());
         Log.d(TAG, "DBPath - " + filePath);
         file = Uri.fromFile(new File(filePath));
     }
 
-    public void setUser (FirebaseUser user) {
+    public void setUser(FirebaseUser user) {
         this.user = user;
     }
 
-    private void storageInit () {
+    private void storageInit() {
         storageReference = storage.getReference().child("user").child(this.user.getUid()).child(file.getLastPathSegment());
     }
 
-    public void uploadDatabase () {
-        storageInit ();
+    public void uploadDatabase() {
+        storageInit();
         storageReference.putFile(file).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -66,8 +66,8 @@ public class FirebaseStorageHelper {
         });
     }
 
-    public void downloadDatabase () {
-        storageInit ();
+    public void downloadDatabase() {
+        storageInit();
         final ProgressDialog progressDialog = new ProgressDialog(context);
         progressDialog.setTitle(context.getString(R.string.wait));
         progressDialog.setMessage(context.getString(R.string.wait_message));
@@ -99,6 +99,6 @@ public class FirebaseStorageHelper {
     }
 
     interface FirebaseStorageListener {
-        public void onBackDataRecoverySuccess ();
+        public void onBackDataRecoverySuccess();
     }
 }

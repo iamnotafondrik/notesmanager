@@ -100,7 +100,7 @@ public class NotesListActivity extends AppCompatActivity implements View.OnClick
         loadFormDB(SPHelper.getStringPreference(SPHelper.PREFS_NOTE_MANAGER_LAST_SORT));
     }
 
-    private  void loadFormDB (String column) {
+    private void loadFormDB(String column) {
         dbHelper = new DBHelper(this);
         SQLiteDatabase database = dbHelper.getReadableDatabase();
         Cursor cursor;
@@ -197,10 +197,10 @@ public class NotesListActivity extends AppCompatActivity implements View.OnClick
     }
 
     @Override
-    public void onClick (View v) {
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fab:
-                addNewNote ();
+                addNewNote();
                 break;
         }
     }
@@ -221,14 +221,14 @@ public class NotesListActivity extends AppCompatActivity implements View.OnClick
     }
 
     //AUTH
-    public void GoogleAuth () {
+    public void GoogleAuth() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this , this )
+                .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
@@ -306,12 +306,12 @@ public class NotesListActivity extends AppCompatActivity implements View.OnClick
     //END AUTH
 
     // //data/data/com.iamnotafondrik.notesmanager/databases/NoteManager (.db)
-    private void dataBase (int request) {
+    private void dataBase(int request) {
         // CHECK USER BEFORE USE THIS METHOD
         FirebaseStorage storage = FirebaseStorage.getInstance();
         storage.setMaxDownloadRetryTimeMillis(10000);
         storage.setMaxUploadRetryTimeMillis(10000);
-        String filePath = String.format("%s", getDatabasePath (DBHelper.DATABASE_NAME).getAbsolutePath());
+        String filePath = String.format("%s", getDatabasePath(DBHelper.DATABASE_NAME).getAbsolutePath());
         Log.d(TAG, "DBPath - " + filePath);
         Uri file = Uri.fromFile(new File(filePath));
         StorageReference storageReference = storage.getReference().child("user").child(user.getUid()).child(file.getLastPathSegment());
@@ -340,7 +340,7 @@ public class NotesListActivity extends AppCompatActivity implements View.OnClick
                 public void onFailure(@NonNull Exception exception) {
                     Log.d(TAG, "BACKUP DOWNLOAD FAILURE. " + exception.getMessage());
                     progressDialog.cancel();
-                    backUpToast (R.string.backup_download_failed);
+                    backUpToast(R.string.backup_download_failed);
                 }
             });
             SPHelper.setBoolPreference(SPHelper.PREFS_NOTE_MANAGER_DO_BACKUP, true);
@@ -360,18 +360,18 @@ public class NotesListActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    private void addNewNote () {
+    private void addNewNote() {
         Intent intentNewNote = new Intent(this, FullNoteActivity.class);
         intentNewNote.putExtra("request", 0);
         startActivity(intentNewNote);
         overridePendingTransition(R.anim.slide_in_right, R.anim.alpha_out);
     }
 
-    private void backUpToast (int message) {
+    private void backUpToast(int message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
-    private void backUpToast (String message) {
+    private void backUpToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 

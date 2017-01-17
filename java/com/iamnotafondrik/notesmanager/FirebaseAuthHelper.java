@@ -55,7 +55,7 @@ public class FirebaseAuthHelper extends FragmentActivity implements GoogleApiCli
     }
 
 
-    public void googleAuth (GoogleApiClient gac, final boolean autoSignIn) {
+    public void googleAuth(GoogleApiClient gac, final boolean autoSignIn) {
         mGoogleApiClient = gac;
 
         mAuth = FirebaseAuth.getInstance();
@@ -120,7 +120,7 @@ public class FirebaseAuthHelper extends FragmentActivity implements GoogleApiCli
         SPHelper.setBoolPreference(SPHelper.PREFS_NOTE_MANAGER_FIRST_LAUNCH, true);
     }
 
-    public void signOut () {
+    public void signOut() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.log_out);
         builder.setMessage(R.string.delete_note_message);
@@ -136,7 +136,7 @@ public class FirebaseAuthHelper extends FragmentActivity implements GoogleApiCli
                     //
                 }
                 user = null;
-                authUpdateListener.updateInformarion ();
+                authUpdateListener.updateInformarion();
                 dialog.cancel();
             }
         });
@@ -149,21 +149,21 @@ public class FirebaseAuthHelper extends FragmentActivity implements GoogleApiCli
         dialog.show();
     }
 
-    public FirebaseUser getUser () {
+    public FirebaseUser getUser() {
         return user;
     }
 
-    public void addListener () {
+    public void addListener() {
         mAuth.addAuthStateListener(mAuthListener);
     }
 
-    public void removeListener () {
+    public void removeListener() {
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
 
     interface AuthUpdateListener {
-        public void updateInformarion ();
+        public void updateInformarion();
     }
 }

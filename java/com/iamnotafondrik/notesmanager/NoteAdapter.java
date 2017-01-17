@@ -23,7 +23,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     private Context context;
     private int lastPosition = -1;
 
-    public NoteAdapter (ArrayList<Note> noteArrayList, Context context) {
+    public NoteAdapter(ArrayList<Note> noteArrayList, Context context) {
         this.noteArrayList = noteArrayList;
         this.context = context;
     }
@@ -81,7 +81,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         return noteArrayList.size();
     }
 
-    public  static class NoteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class NoteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView description, date;
         ImageView groups, pin;
@@ -92,7 +92,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
         LinearLayout noteCardLayout;
 
-        public NoteViewHolder (View view, Context context, ArrayList<Note> noteArrayList) {
+        public NoteViewHolder(View view, Context context, ArrayList<Note> noteArrayList) {
             super(view);
             this.noteArrayList = noteArrayList;
             this.context = context;

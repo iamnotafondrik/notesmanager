@@ -10,7 +10,7 @@ import android.content.Context;
 
 public class WidgetUpdater {
 
-    public static void updateWidget (Context context) {
+    public static void updateWidget(Context context) {
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetNotes.class));
         if (appWidgetIds.length > 0) {

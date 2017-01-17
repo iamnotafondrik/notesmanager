@@ -74,10 +74,10 @@ public class WidgetNotes extends AppWidgetProvider {
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
         if (intent.getAction().equalsIgnoreCase(ACTION_NOTES_LIST_ACTIVITY)) {
-            context.startActivity (intent);
+            context.startActivity(intent);
         }
         if (intent.getAction().equalsIgnoreCase(ACTION_FULL_NOTE_ACTIVITY)) {
-            context.startActivity (intent);
+            context.startActivity(intent);
         }
     }
 

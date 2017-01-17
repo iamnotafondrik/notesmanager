@@ -58,6 +58,6 @@ public class GroupPicker extends Dialog implements View.OnClickListener {
     }
 
     interface GroupPickerListener {
-        public void setGroup (int id);
+        public void setGroup(int id);
     }
 }

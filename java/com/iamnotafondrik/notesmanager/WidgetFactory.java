@@ -23,7 +23,7 @@ public class WidgetFactory implements RemoteViewsService.RemoteViewsFactory {
     Context context;
     int widgetID;
 
-    WidgetFactory (Context context, Intent intent) {
+    WidgetFactory(Context context, Intent intent) {
         this.context = context;
         widgetID = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
     }
@@ -43,7 +43,7 @@ public class WidgetFactory implements RemoteViewsService.RemoteViewsFactory {
         SQLiteDatabase database;
         database = dbHelper.getReadableDatabase();
 
-        Cursor cursor = database.query(DBHelper.TABLE_NOTES, null, DBHelper.KEY_PINNED + " = ?", new String[] {"YES"}, null, null, DBHelper.KEY_ID + " DESC");
+        Cursor cursor = database.query(DBHelper.TABLE_NOTES, null, DBHelper.KEY_PINNED + " = ?", new String[]{"YES"}, null, null, DBHelper.KEY_ID + " DESC");
         cursor.moveToFirst();
 
         if (cursor.getCount() > 0) {
@@ -65,7 +65,7 @@ public class WidgetFactory implements RemoteViewsService.RemoteViewsFactory {
         try {
             data.clear();
             noteId.clear();
-        } catch (Exception e){
+        } catch (Exception e) {
             Log.d("Widget_", e.getMessage());
         }
     }

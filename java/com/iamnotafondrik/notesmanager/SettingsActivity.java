@@ -1,4 +1,5 @@
-/**/package com.iamnotafondrik.notesmanager;
+/**/
+package com.iamnotafondrik.notesmanager;
 
 import android.app.ProgressDialog;
 import android.appwidget.AppWidgetManager;
@@ -101,7 +102,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 if (user == null) {
                     signIn();
                 } else {
-                    signOut ();
+                    signOut();
                 }
                 break;
         }
@@ -126,14 +127,14 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     }
 
     //AUTH
-    public void GoogleAuth () {
+    public void GoogleAuth() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this , this )
+                .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
@@ -147,7 +148,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     if (!SPHelper.getBoolPreference(SPHelper.PREFS_NOTE_MANAGER_DO_BACKUP)) {
-                        loadBackUp ();
+                        loadBackUp();
                     }
 
                 } else {
@@ -155,11 +156,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                     //signIn();
                 }
-                updateInformarion ();
+                updateInformarion();
             }
         };
     }
-
 
 
     @Override
@@ -188,7 +188,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                         Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
 
                         SPHelper.setBoolPreference(SPHelper.PREFS_NOTE_MANAGER_USER_SINGED, true);
-                        loadBackUp ();
+                        loadBackUp();
 
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithCredential", task.getException());
@@ -204,7 +204,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-    private void signOut () {
+    private void signOut() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.log_out);
         builder.setMessage(R.string.delete_note_message);
@@ -220,7 +220,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                     //
                 }
                 user = null;
-                updateInformarion ();
+                updateInformarion();
                 dialog.cancel();
             }
         });
@@ -234,12 +234,11 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-
-    private void loadBackUp () {
+    private void loadBackUp() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         storage.setMaxDownloadRetryTimeMillis(10000);
         storage.setMaxUploadRetryTimeMillis(10000);
-        String filePath = String.format("%s", getDatabasePath (DBHelper.DATABASE_NAME).getAbsolutePath());
+        String filePath = String.format("%s", getDatabasePath(DBHelper.DATABASE_NAME).getAbsolutePath());
         Log.d(TAG, "DBPath - " + filePath);
         Uri file = Uri.fromFile(new File(filePath));
         StorageReference storageReference = storage.getReference().child("user").child(user.getUid()).child(file.getLastPathSegment());
@@ -265,18 +264,18 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             public void onFailure(@NonNull Exception exception) {
                 Log.d(TAG, "BACKUP DOWNLOAD FAILURE. " + exception.getMessage());
                 progressDialog.cancel();
-                backUpToast (R.string.backup_download_failed);
+                backUpToast(R.string.backup_download_failed);
             }
         });
         SPHelper.setBoolPreference(SPHelper.PREFS_NOTE_MANAGER_DO_BACKUP, true);
     }
 
-    private void backUpToast (int message) {
+    private void backUpToast(int message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     //@Override
-    public void updateInformarion () {
+    public void updateInformarion() {
         if (user != null) {
             nameText.setText(user.getDisplayName());
             emailText.setText(user.getEmail());

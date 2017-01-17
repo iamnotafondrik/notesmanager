@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 tools:ignore="RtlHardcoded"
                 android:textAlignment="viewEnd"
-                style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
+                style="@style/Widget.AppCompat.Spinner"
                 android:layout_alignBottom="@+id/fullNoteIcon"
                 android:layout_alignParentEnd="true" />
 
@@ -54,7 +54,6 @@
                 android:textSize="16sp"
                 android:layout_alignTop="@+id/fullNoteIcon"
                 android:layout_alignParentEnd="true"
-                android:textAllCaps="false"
                 android:layout_alignStart="@+id/remind_spinner"
                 android:paddingStart="@dimen/dimen18dp" />
 

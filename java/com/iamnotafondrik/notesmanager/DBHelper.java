@@ -14,11 +14,11 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "NoteManager";
     public static final String TABLE_NOTES = "Notes";
 
-    public  static final  String KEY_ID = "_id";
-    public  static final  String KEY_DESCRIPTION = "Description";
-    public  static final  String KEY_DATE= "Date";
-    public  static final  String KEY_GROUP= "Groups";
-    public  static final  String KEY_PINNED= "Pinned"; // YES or NO
+    public static final String KEY_ID = "_id";
+    public static final String KEY_DESCRIPTION = "Description";
+    public static final String KEY_DATE = "Date";
+    public static final String KEY_GROUP = "Groups";
+    public static final String KEY_PINNED = "Pinned"; // YES or NO
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

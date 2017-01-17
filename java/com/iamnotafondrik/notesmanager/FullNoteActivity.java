@@ -96,51 +96,7 @@ public class FullNoteActivity extends AppCompatActivity implements View.OnClickL
 
         request = getIntent().getIntExtra("request", 0);
 
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-
-        if (request == 0) {
-            contentValues.put(DBHelper.KEY_DESCRIPTION, "");
-            contentValues.put(DBHelper.KEY_DATE, "");
-            contentValues.put(DBHelper.KEY_GROUP, 0);
-            contentValues.put(DBHelper.KEY_PINNED, "NO");
-            database.insert(DBHelper.TABLE_NOTES, null, contentValues);
-
-            Cursor cursor = database.query(DBHelper.TABLE_NOTES, null, null, null, null, null, null);
-            cursor.moveToLast();
-            noteId = cursor.getString(cursor.getColumnIndex(DBHelper.KEY_ID));
-            cursor.close();
-
-            setGroup(0);
-            pinned = "NO";
-            oldPinned = "NO";
-            switcher.setChecked(false);
-            imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);
-        }
-
-        if (request == 1) {
-            noteId = getIntent().getStringExtra("noteId");
-            Cursor cursor = database.query(DBHelper.TABLE_NOTES, null, "_id = ?", new String[] {noteId}, null, null, null);
-            cursor.moveToFirst();
-
-            description.setText(cursor.getString(cursor.getColumnIndex(DBHelper.KEY_DESCRIPTION)));
-            groupId = cursor.getInt(cursor.getColumnIndex(DBHelper.KEY_GROUP));
-            pinned = cursor.getString(cursor.getColumnIndex(DBHelper.KEY_PINNED));
-            cursor.close();
-            oldDescription = description.getText().toString();
-            oldGroupId = groupId;
-            oldPinned = pinned;
-            setGroup(groupId);
-
-            if (pinned.equals("YES")) {
-                switcher.setChecked(true);
-            }
-            if (pinned.equals("NO")) {
-                switcher.setChecked(false);
-            }
-
-            imm.hideSoftInputFromWindow(description.getWindowToken(), 0);
-
-        }
+        prepareNote();
 
         reminders = new Reminders(remindSpinner, this);
         reminders.configSpinner();
@@ -165,11 +121,10 @@ public class FullNoteActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-
     @Override
     protected void onPause() {
         saveNote();
-        updateWidget ();
+        updateWidget();
         super.onPause();
     }
 
@@ -204,12 +159,60 @@ public class FullNoteActivity extends AppCompatActivity implements View.OnClickL
         }
         if (id == R.id.action_delete_note) {
             DeleteNoteDialog deleteNoteDialog = new DeleteNoteDialog(this);
-            deleteNoteDialog.createDeleteDialog ();
+            deleteNoteDialog.createDeleteDialog();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void saveNote () {
+    private void prepareNote() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        if (request == 0) {
+            contentValues.put(DBHelper.KEY_DESCRIPTION, "");
+            contentValues.put(DBHelper.KEY_DATE, "");
+            contentValues.put(DBHelper.KEY_GROUP, 0);
+            contentValues.put(DBHelper.KEY_PINNED, "NO");
+            database.insert(DBHelper.TABLE_NOTES, null, contentValues);
+
+            Cursor cursor = database.query(DBHelper.TABLE_NOTES, null, null, null, null, null, null);
+            cursor.moveToLast();
+            noteId = cursor.getString(cursor.getColumnIndex(DBHelper.KEY_ID));
+            cursor.close();
+
+            setGroup(0);
+            pinned = "NO";
+            oldPinned = "NO";
+            switcher.setChecked(false);
+            imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+
+        if (request == 1) {
+            noteId = getIntent().getStringExtra("noteId");
+            Cursor cursor = database.query(DBHelper.TABLE_NOTES, null, "_id = ?", new String[]{noteId}, null, null, null);
+            cursor.moveToFirst();
+
+            description.setText(cursor.getString(cursor.getColumnIndex(DBHelper.KEY_DESCRIPTION)));
+            groupId = cursor.getInt(cursor.getColumnIndex(DBHelper.KEY_GROUP));
+            pinned = cursor.getString(cursor.getColumnIndex(DBHelper.KEY_PINNED));
+            cursor.close();
+            oldDescription = description.getText().toString();
+            oldGroupId = groupId;
+            oldPinned = pinned;
+            setGroup(groupId);
+
+            if (pinned.equals("YES")) {
+                switcher.setChecked(true);
+            }
+            if (pinned.equals("NO")) {
+                switcher.setChecked(false);
+            }
+
+            imm.hideSoftInputFromWindow(description.getWindowToken(), 0);
+
+        }
+    }
+
+    private void saveNote() {
         if (!description.getText().toString().equals(oldDescription) || groupId != oldGroupId || !pinned.equals(oldPinned)) {
             if (description.getText().toString().equals("")) {
                 database.delete(DBHelper.TABLE_NOTES, "_id = " + noteId, null);
@@ -221,7 +224,7 @@ public class FullNoteActivity extends AppCompatActivity implements View.OnClickL
 
                 contentValues.put(DBHelper.KEY_GROUP, groupId);
                 contentValues.put(DBHelper.KEY_PINNED, pinned);
-                database.update(DBHelper.TABLE_NOTES, contentValues, "_id = ?", new String[] { noteId });
+                database.update(DBHelper.TABLE_NOTES, contentValues, "_id = ?", new String[]{noteId});
             }
         }
     }
@@ -237,7 +240,7 @@ public class FullNoteActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
-    public void setGroup (int id) {
+    public void setGroup(int id) {
         groupId = id;
         switch (id) {
             case 0:
@@ -256,24 +259,24 @@ public class FullNoteActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
-    public void deleteNote () {
+    public void deleteNote() {
         database.delete(DBHelper.TABLE_NOTES, "_id = " + noteId, null);
-        updateWidget ();
+        updateWidget();
         finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.alpha_out);
     }
 
     @Override
-    public EditText getDescription () {
+    public EditText getDescription() {
         return description;
     }
 
     @Override
-    public String getNoteId () {
+    public String getNoteId() {
         return noteId;
     }
 
-    void updateWidget () {
+    void updateWidget() {
         if (!description.getText().toString().equals("")) {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getApplicationContext());
             int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(this, WidgetNotes.class));
